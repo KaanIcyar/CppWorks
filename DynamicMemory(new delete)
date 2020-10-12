@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int size;
+	cout << "Size: ";
+	cin >> size;
+	int* ptr1 = new int;
+	int* ptr2 = new int[size];
+
+	*ptr1 = 12;
+
+	for (int i = 0; i < size; i++) {
+		cout << i +1 << ". value : ";
+		cin >> *(ptr2 + i);
+	}
+	for (int i = 0; i < size; i++) {
+		cout << *(ptr2 + i) << endl;
+	}
+
+	cout << "ptr1 value : " << *ptr1 << endl;
+
+	delete ptr1;
+	ptr1 = nullptr;  // without this runtime error
+	delete [] ptr2;
+	ptr2 = nullptr;  // without this runtime error
+
+	for (int i = 0; i < size; i++) {                // ERROR because array has deleted
+		cout << *(ptr2 + i) << endl;
+	}
+
+	cout << "ptr1 value : " << *ptr1 << endl;       // ERROR because value has deleted
+
+
+}
+
