@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+void changeNumbers(int* nmr1, int* nmr2) {
+    int temp;
+    temp = *nmr1;
+    *nmr1 = *nmr2;
+    *nmr2 = temp;
+}
+
+int main()
+{
+    int* ptr1, * ptr2;
+    int number1 = 10, number2 = 20;
+    ptr1 = &number1;
+    ptr2 = &number2;
+
+    cout << "Sayi 1 :" << number1 << "  Sayi 2 :" << number2 << endl;
+    changeNumbers(&number1, &number2);
+    cout << "Sayi 1 :" << number1 << "  Sayi 2 :" << number2 << endl;
+
+}
+
+**************************************************************************
+int main() {
+
+    string isim = "Kaan";
+    string* isimAdresi = &isim;
+    cout << *isimAdresi << endl; // Kaan basar.
+    cout << isimAdresi << endl;  // Adres basar.
+
+}
+**************************************************************************
+int main() {
+
+    string kadro[] = {"Mesut","Pelkas","Gustavo"};
+    string* kadroAdres = kadro;
+    cout << *kadroAdres << endl; // Mesut basar.
+    cout << kadroAdres << endl;  // Adres basar.
+
+    for (int i=0;i<3;i++)
+        cout << *(kadroAdres+i) << endl;  // Hepsini sırayla basar.
+}
+**************************************************************************
+int main() {
+
+    char isim[5] = "Kaan";
+    char* isimAdresi = isim;
+    cout << *isimAdresi << endl; // K harifini basar.
+
+
+    for (int i = 0; i < 4; i++)
+        cout << *(isimAdresi + i); // Kaan basar.
+    cout << endl;
+
+    cout << isimAdresi << endl;  // Kaan basar.
+
+}
