@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+
+struct Student {
+    int no;
+    string name, surname, subject;
+    char sex;
+};
+int main()
+{
+    Student stdnt1 = { 161110038,"Kaan","Icyar","EEE",'M' };
+    Student stdnt2;
+    cin >> stdnt2.no >> stdnt2.name >> stdnt2.surname >> stdnt2.subject >> stdnt2.sex;
+
+    cout << stdnt1.no << endl << stdnt1.name << endl << stdnt1.surname << endl << stdnt1.subject << endl << stdnt1.sex << endl;
+    cout << stdnt2.no << endl << stdnt2.name << endl << stdnt2.surname << endl << stdnt2.subject << endl << stdnt2.sex << endl;
+
+    
+}
+
