@@ -40,6 +40,9 @@ int main() {
 
     for (int i=0;i<3;i++)
         cout << *(kadroAdres+i) << endl;  // Hepsini sırayla basar.
+        
+    for (int i = 0; i < 3; i++)
+        cout << kadroAdres[i] << endl;  // Hepsini sırayla basar.
 }
 **************************************************************************
 int main() {
@@ -54,5 +57,35 @@ int main() {
     cout << endl;
 
     cout << isimAdresi << endl;  // Kaan basar.
+
+}
+**************************************************************************
+// POINTER AND FUNCTIONS
+
+void add(int* diziAdress1, int* diziAdress2, int* addDiziAdress, int length) {
+    for (int i = 0; i < length / 4; i++) {
+        addDiziAdress[i] = diziAdress1[i] + diziAdress2[i];
+    }
+}
+
+int summantion(int* diziAdress1, int* diziAdress2, int length) {
+    int summ = 0;
+    for (int i = 0; i < length / 4; i++)
+        summ += (diziAdress1[i] + diziAdress2[i]);
+    return summ;
+}
+
+int main (){
+    int dizi1[] = { 14, 23, 1, 10 };
+    int dizi2[] = { 32, 3, 12, 5 };
+    int addDizi[4];
+
+    show(dizi1, dizi2, sizeof(dizi1));
+    add(dizi1, dizi2, addDizi, sizeof(dizi1));
+    cout << "Sum Array: ";
+    for(int i = 0; i < 4; i++)
+        cout << addDizi[i] << " ";
+    cout << endl;
+    cout << "Summantion:" << summantion(dizi1, dizi2, sizeof(dizi1)) << endl;
 
 }
