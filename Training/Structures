@@ -18,4 +18,76 @@ int main()
 
     
 }
+**********************************************************************************************************************************************************
+//POINTER AND STRUCTURE 
 
+#include <iostream>
+using namespace std;
+#include <chrono>
+#include <thread>
+using namespace std::this_thread; // sleep_for, sleep_until
+using namespace std::chrono; // nanoseconds, system_clock, seconds
+
+struct Player {
+    string name;
+    string position;
+    int salary;
+};                                                                              //STRUCTERDAN SONRA NOKTALI VİRGÜL KULLANILIYOR!!!
+
+void createPlayer(Player *plyr) {
+    cout << "Name: ";
+    cin >> plyr->name;
+    cout << "Position: ";
+    cin >> plyr->position;
+    cout << "Salary: ";
+    cin >> plyr->salary;
+}
+
+
+void showPlayer(Player plyr) {
+    cout << "\nPlayer's Information:\nName: " << plyr.name << "\nPosition: " << plyr.position << "\nSalary: " << plyr.salary;
+}
+
+void updatePlayer(Player* plyr,string newName,string newPosition,int newSalary) {
+    plyr->name = newName;
+    plyr->position = newPosition;
+    plyr->salary = newSalary;
+
+}
+int main() {
+
+    Player plyr1;
+    char choise;
+    string updateName, updatePosition;
+    int updateSalary;
+    createPlayer(&plyr1);
+    showPlayer(plyr1);
+    cout << "\n\nDo You Want to Update Player's ID? (y/n): \n";
+    while (1) {
+        cin >> choise;
+        if (choise == 'y') {
+            cout << "Name: ";
+            cin >> updateName;
+            cout << "Position: ";
+            cin >> updatePosition;
+            cout << "Salary: ";
+            cin >> updateSalary;
+            updatePlayer(&plyr1, updateName, updatePosition, updateSalary);
+            showPlayer(plyr1);
+            return 0;
+        }
+        else if (choise == 'n') {
+            cout << "Program is ending now!!!";
+            sleep_for(nanoseconds(10));
+            sleep_until(system_clock::now() + seconds(1));
+            return 0;
+        }
+        else {
+            cout << "Wrong entry. Please enter y or n.\n";
+        }
+    }
+
+
+
+}
+**********************************************************************************************************************************************************
