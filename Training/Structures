@@ -91,3 +91,96 @@ int main() {
 
 }
 **********************************************************************************************************************************************************
+//STRUCTURE IN A STRUCTURE
+
+
+struct Products {
+    string name;
+    int number;
+};
+
+
+
+struct Sections {
+    string name;
+    bool check;
+    int totalProduct;
+    Products *product;
+
+};
+
+void changeStock(Sections *section, string newName, int newNumber) {
+    section->product->name = newName;
+    section->product->number = newNumber;
+}
+
+
+void addSection(Sections* section1, string sectionName, int sectionTotalProduct) {
+    section1->name = sectionName;
+    section1->check = true;
+    section1->totalProduct = sectionTotalProduct;
+    cout << "\n\n\nSection Name: " << section1->name << " " << "\nSection Existence: " << section1->check << "\nTotal Product: " << section1->totalProduct;
+}
+
+void addProduct(Products* product, string newProductName, int newProductNumber) {
+    product->name = newProductName;
+    product->number = newProductNumber;
+    cout << "\nProduct Name: " <<product->name << "\nProduct Number: " <<product->number << "\n\n\n";
+}
+
+
+int main() {
+
+    int choise; 
+    string newProductName;
+    int ProductNumber;
+
+    Sections section1;
+    Products product1;
+
+    Sections section2;
+    Products product2;
+
+    string newSection;
+    int newTotalProduct;
+    string productName;
+    int newProductNumber;
+    
+
+    while(1){
+        cout << "\nAdd Section = 1"<<endl<< "ChangeProduct = 2\n";
+        cin >> choise;
+        if (choise == 1){
+            cout << "Section Name: ";
+            cin >> newSection;
+            cout << "Total Product: ";
+            cin >> newTotalProduct;
+            cout << "Products Name: ";
+            cin >> productName;
+            cout << "Product Number: ";
+            cin >> newProductNumber;
+
+            addSection(&section1, newSection, newTotalProduct);
+            addProduct(&product1, productName, newProductNumber);
+
+        }
+        
+        else if (choise == 2) {
+            cin >> newProductName;
+            cin >> ProductNumber;
+            section1.name = "Frozen Food";
+            section1.check = true;
+            section1.totalProduct = 300;
+
+            product1.name = newProductName;
+            product1.number = ProductNumber;
+            section1.product = &product1;
+
+            changeStock(&section1, newProductName, ProductNumber);
+
+            cout << "Section Name: " << section1.name << " " << "\nSection Existence: " << section1.check << "\nTotal Product: " << section1.totalProduct << "\nProduct Name: " << section1.product->name << "\nProduct Number: " << section1.product->number;
+
+
+        }
+    }
+}
