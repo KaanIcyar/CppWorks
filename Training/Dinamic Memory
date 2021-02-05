@@ -1,0 +1,80 @@
+
+// THEY ALL GIVES RUN TIME ERROR AS EXCEPTED BECAUSE WE COMPLETELY DELETE POINTER FROM RAM(RANDOM ACCESS MEMORY).
+
+#include <iostream>
+using namespace std;
+
+
+int main()
+{
+    
+    int* adress = new int;
+    *adress = 50;
+
+    cout << *adress << endl;
+
+    delete adress;
+    adress = nullptr;
+
+    cout << *adress << endl;
+
+
+
+}
+
+*********************************************************************************************************************************************************************************
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int size = 3;
+    int* adress = new int[size];
+
+    adress[0] = 10;
+    adress[1] = 20;
+    adress[2] = 30;
+
+    for (int i = 0; i < 3; i++)
+        cout << adress[i] << endl;
+
+    delete[] adress;
+    adress = 0;
+
+    for (int i = 0; i < 3; i++)
+        cout << adress[i] << endl;
+}
+*********************************************************************************************************************************************************************************
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int size = 3;
+    int* adress = new int[size];
+    int* adress2 = new int[size];
+    adress[0] = 10;
+    adress[1] = 20;
+    adress[2] = 30;
+
+    adress2 = adress;
+
+    for (int i = 0; i < 3; i++)
+        cout << adress[i] << endl;
+
+    for (int i = 0; i < 3; i++)
+        cout << adress2[i] << endl;
+
+    delete[] adress;
+    adress = 0;
+
+    delete[] adress2;
+    adress2 = 0;
+
+    for (int i = 0; i < 3; i++)
+        cout << adress[i] << endl;
+
+    for (int i = 0; i < 3; i++)
+        cout << adress2[i] << endl;
+
+}
