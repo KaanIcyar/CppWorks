@@ -13,7 +13,7 @@ public:
         if (newName.length() >= 2)
             name = newName;
         else{
-            cout << "Please enter a name which has 2 or more letters.";
+            cout << "\nPlease enter a name which has 2 or more letters.";
             error++;
         }
     }
@@ -21,7 +21,7 @@ public:
         if (newNumber > 0)
             number = newNumber;
         else{
-            cout << "Please enter a proper number.";
+            cout << "\nPlease enter a proper number.";
             error++;
         }
     }
@@ -43,8 +43,6 @@ public:
     string getSubject() {
         if (error == 0)
             return subject;
-        else
-            return " ";
     }
 
 };
@@ -52,12 +50,32 @@ public:
 
 
 int main() {
-    Student std1;
-    std1.setName("Kaan");
-    std1.setNumber(161110038);
-    std1.setSubject("Engineering");
+    Student* std1 = new Student();
+    string name, subject;
+    int number;
+    int counter = 0;
+    while (counter < 3) {
+        cout << endl << "Please Enter Your Name: ";
+        cin >>name;
+        cout << "Please Enter Your Number: ";
+        cin >> number;
+        cout << "Please Enter Your Subject: ";
+        cin >> subject;
 
-    cout << std1.getName() << endl << std1.getNumber() << endl << std1.getSubject() << endl;
+        std1->setName(name);
+        std1->setNumber(number);
+        std1->setSubject(subject);
+
+        if (std1->getName() == " " && std1->getNumber() == 0 && std1->getSubject() == " ")
+            counter++;
+        else{
+            cout << std1->getName() << endl << std1->getNumber() << endl << std1->getSubject() << endl;
+            return 0;
+        }
+    }
+
+    delete[] std1;
+    std1 = nullptr;
 
 
 
