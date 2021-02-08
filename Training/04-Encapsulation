@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int number;
+    string subject;
+
+public:
+    int error = 0;
+    void setName(string newName) {
+        if (newName.length() >= 2)
+            name = newName;
+        else{
+            cout << "Please enter a name which has 2 or more letters.";
+            error++;
+        }
+    }
+    void setNumber(int newNumber) {
+        if (newNumber > 0)
+            number = newNumber;
+        else{
+            cout << "Please enter a proper number.";
+            error++;
+        }
+    }
+    void setSubject(string newSubject) {
+        subject = newSubject;
+    }
+    string getName() {
+        if (error == 0)
+            return name;
+        else
+            return " ";
+    }
+    int getNumber() {
+        if (error == 0)
+            return number;
+        else
+            return 0;
+    }
+    string getSubject() {
+        if (error == 0)
+            return subject;
+        else
+            return " ";
+    }
+
+};
+
+
+
+int main() {
+    Student std1;
+    std1.setName("Kaan");
+    std1.setNumber(161110038);
+    std1.setSubject("Engineering");
+
+    cout << std1.getName() << endl << std1.getNumber() << endl << std1.getSubject() << endl;
+
+
+
+}
