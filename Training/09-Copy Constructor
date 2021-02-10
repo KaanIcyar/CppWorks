@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+
+
+class Addition {
+private:
+    int number1, number2;
+
+public:
+    Addition(int n1, int n2):number1(n1),number2(n2){}
+    Addition(const Addition& copy) :number1(copy.number1), number2(copy.number2){}     // COPIES Addition CONSTRUCTOR TO copy CONSTRUCTOR
+
+    void print() {
+        cout << "Answer : " << number1 + number2 << endl;
+    }
+
+
+};
+
+int main() {
+    Addition n1(19, 7);
+    Addition n2(n1);
+
+    n1.print();
+    n2.print();
+}
