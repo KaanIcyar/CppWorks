@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+
+class Date {
+private:
+    int day;
+    int month;
+    int year;
+public:
+    Date(int d, int m, int y) {
+        day = d;
+        month = m;
+        year = y;
+    }
+    
+    void showDate() {
+        cout << day << " / " << month << " / " << year ;
+    }
+};
+
+class Human {
+private:
+    string name;
+    Date date;
+public:
+    Human(string newName, Date dt) :name(newName), date(dt) {};
+
+    void showInformations() {
+        cout << name << "'s birthday is ";
+        date.showDate();
+        cout << endl;
+    }
+};
+
+int main() {
+
+    Date humanBd(25, 6, 1998);
+    Human h1("Kaan", humanBd);
+
+    h1.showInformations();
+
+
+    return 0;
+}
