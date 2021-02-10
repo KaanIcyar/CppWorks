@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+class Animal {
+private:
+    string name;
+    string species;
+    int age;
+public:
+    Animal(string newName, string newSpecies, int newAge) {
+        name = newName;
+        species = newSpecies;
+        age = newAge;
+    }
+    Animal(string newName) {
+        name = newName;
+        species = "Not defined.";
+        age = 0;
+    }
+    void changeInfos(string newName, string newSpecies, int newAge) {
+        if (newName.length() >= 3){
+            name = newName;
+            species = newSpecies;
+            age = newAge;
+        }
+
+    }
+    void showInfos() {
+        cout << "Name : " << name<< endl;
+        cout << "Species : " << species << endl;
+        cout << "Age : " << age << endl;
+    }
+};
+
+int main() {
+    Animal dog("Pasa", "Golden", 2);
+    Animal cat("Duman", "Tekir", 4);
+
+    dog.showInfos();
+    cat.showInfos();
+
+    dog.changeInfos("Faraday", "Pitbull", 3);
+    cat.changeInfos("YY", "Siyam", 4);
+
+    dog.showInfos(); //dog is changing but cat is not changing.
+    cat.showInfos();
+}
