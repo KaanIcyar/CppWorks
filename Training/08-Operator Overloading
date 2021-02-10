@@ -8,7 +8,7 @@ private:
     int imaginary;
 
 public:
-    Complex(){}
+    Complex(){}                       // DONT FORGET THAT. WE DONT GIVE ANY VALUE WHEN WE CREATE add VARIABLE IN LINE 29 SO THERE SHOULB BE EMPTY CONSTRUCTER METHOD.
 
     Complex(int r, int i) {
         real = r;
@@ -26,10 +26,10 @@ public:
     }
 
     Complex operator+ (Complex s2) {
-        Complex toplam;
-        toplam.real = real + s2.real;
-        toplam.imaginary = imaginary + s2.imaginary;
-        return toplam;
+        Complex add;
+        add.real = real + s2.real;
+        add.imaginary = imaginary + s2.imaginary;
+        return add;
     }
 
 };
