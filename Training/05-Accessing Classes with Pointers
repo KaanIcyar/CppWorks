@@ -1,0 +1,82 @@
+#include <iostream>
+using namespace std;
+class Student {
+private:
+    string name;
+    int number;
+    string subject;
+
+public:
+    int error = 0;
+    void setName(string newName) {
+        if (newName.length() >= 2)
+            name = newName;
+        else{
+            cout << "\nPlease enter a name which has 2 or more letters.";
+            error++;
+        }
+    }
+    void setNumber(int newNumber) {
+        if (newNumber > 0)
+            number = newNumber;
+        else{
+            cout << "\nPlease enter a proper number.";
+            error++;
+        }
+    }
+    void setSubject(string newSubject) {
+        subject = newSubject;
+    }
+    string getName() {
+        if (error == 0)
+            return name;
+        else
+            return " ";
+    }
+    int getNumber() {
+        if (error == 0)
+            return number;
+        else
+            return 0;
+    }
+    string getSubject() {
+        if (error == 0)
+            return subject;
+    }
+
+};
+
+
+
+int main() {
+    Student* std1 = new Student();
+    string name, subject;
+    int number;
+    int counter = 0;
+
+    while (counter < 3) {
+        cout << endl << "Please Enter Your Name: ";
+        cin >>name;
+        cout << "Please Enter Your Number: ";
+        cin >> number;
+        cout << "Please Enter Your Subject: ";
+        cin >> subject;
+
+        std1->setName(name);
+        std1->setNumber(number);
+        std1->setSubject(subject);
+        counter++;
+
+        if (std1->getName() != " " && std1->getNumber() != 0 && std1->getSubject() != " "){
+            cout << std1->getName() << endl << std1->getNumber() << endl << std1->getSubject() << endl;
+            return 0;
+        }
+    }
+
+
+
+    delete[] std1;
+    std1 = nullptr;
+
+    return 0;
+}
