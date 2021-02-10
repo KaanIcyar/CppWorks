@@ -1,0 +1,63 @@
+#include<iostream>
+using namespace std;
+
+
+class Student {
+private:
+    string name, surname;
+    int number;
+public:
+    Student() {
+        name = " ";
+        surname = " ";
+        number = 0;
+    }
+    int registerStudent(){
+
+        for (int i=0; i <3 ; i++){
+            cout << endl << "Please Enter Your Name: ";
+            cin >> name;
+            cout << "Please Enter Your Surname: ";
+            cin >> surname;
+            cout << "Please Enter Your Number: ";
+            cin >> number;
+
+            int a = name.length();
+            int b = surname.length();
+
+
+            if (a <= 2 || b <= 2)
+                cout << "Please enter a longer name or surname.";
+            else if (number <= 0)
+                cout << "Please enter a number bigger than 0";
+            else {
+                this->name = name;                                                         // this->name MEANS LINE 7 name VARIABLE NOT LINE 19
+                this->surname = surname;
+                this->number = number;
+                cout << "Name : " << this->name << endl;
+                cout << "Surname : " << this->surname << endl;
+                cout << "Number : " << this->number << endl;
+
+                return 0;
+        }
+    }
+        return 0;
+    }
+
+
+    ~Student() {
+        cout << "Pointer has been deleted.";                     //DECONSTRUCTED METHOD
+    }
+
+
+};
+
+
+int main() {
+    Student *std1 = new Student();
+    std1->registerStudent();
+
+    delete std1;
+
+    return 0;
+}
