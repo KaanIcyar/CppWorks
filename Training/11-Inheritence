@@ -83,3 +83,44 @@ int main()
 
     return 0;
 }
+
+*********************************************************************************************************************************************************************************
+
+
+
+#include <iostream>
+using namespace std;
+
+class Team {
+public:
+    string name;
+    int established;
+
+
+    
+};
+
+class Player:public Team {
+private:
+    string name = " ";
+public:
+    int salary;
+    void setName(string name) {
+        this->name = name;
+    }
+    string getName() {
+        return name;
+    }
+};
+
+int main() {
+    Player p1;
+    p1.setName("Kaan");
+    p1.established=1907;
+    p1.Team::name="Fenerbahce";                         // Assignments can be made this way when two inherited and inherited classes have variables with the same name. 
+    p1.salary = 10000;                                  // The purpose of this code block is to show this situation.
+    
+                                              
+    cout << "Name of Club :" << p1.Team::name << endl << "Team Establishment : " << p1.established << endl << "Player Name : " << p1.getName() << endl
+        << "Salary : " << p1.salary << endl;
+}
