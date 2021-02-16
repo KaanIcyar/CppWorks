@@ -1,0 +1,85 @@
+#include <iostream>
+using namespace std;
+
+
+class Employee {
+protected:
+    string name;
+    string surname;
+    string sex;
+    int age;
+    int ID;
+
+public:
+    Employee(){
+        this->name = "null";
+        this->surname = "null";
+        this->sex = "null";
+        this->age = 0;
+        this->ID = 0;
+
+        cout << "asdas";
+    }
+    Employee(string name, string surname, string sex, int age, int ID):name(name), surname(surname), sex(sex), age(age), ID(ID){}
+
+
+
+};
+
+class Student :public Employee {
+private:
+    int year;
+    float GPA;
+public:
+
+
+
+    Student(string name, string surname, string sex,int age, int ID, int year , float GPA):Employee(name, surname, sex, age, ID),year(year), GPA(GPA){}
+
+    void printStudent() {
+        cout << "Name : " << name << endl << "Surname : " << surname << endl << "Sex : " << sex << endl << "Age : " << age << endl << "ID : " << ID << endl << "Year : " << year << endl << "GPA :" << GPA << endl;
+    }
+};
+
+class Academician :public Employee {
+private:
+    string degree;
+    int doorNo;
+
+public:
+    Academician(string name, string surname, string sex, int age, int ID, string degree, int doorNo) :Employee(name, surname, sex, age, ID), degree(degree), doorNo(doorNo) {}
+
+    void printAcademcian() {
+        cout << "Name : " << name << endl << "Surname : " << surname << endl << "Sex : " << sex << endl << "Age : " << age << endl << "ID : " << ID << endl << "Degree : " << degree << endl << "Door No :" << doorNo << endl;
+    }
+};
+
+class officeBearer :public Employee {
+private:
+    string job;
+    string faculty;
+
+public:
+    officeBearer(string name, string surname, string sex, int age, int ID, string job, string faculty) :Employee(name, surname, sex, age, ID), job(job), faculty(faculty) {};
+
+    void printAcademcian() {
+        cout << "Name : " << name << endl << "Surname : " << surname << endl << "Sex : " << sex << endl << "Age : " << age << endl << "ID : " << ID << endl << "Job : " << job << endl << "Faculty :" << faculty << endl;
+    }
+};
+
+
+int main()
+{
+
+    Student std1("Kaan", "ICYAR", "M", 23, 50, 4, 3.15);
+    Academician a1("Ahmet", "ASDAS", "M", 53, 2, "EEE", 321);
+    officeBearer o1("Buket", "DSDAS", "F", 26, 312, "Secretary", "Engineering");
+
+    std1.printStudent();
+    cout << "----------------------------------------------------------------" << endl;
+    a1.printAcademcian();
+    cout << "----------------------------------------------------------------" << endl;
+    o1.printAcademcian();
+
+    return 0;
+}
