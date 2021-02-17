@@ -67,6 +67,9 @@ int main()
     cout << "-------------------------------------" << endl;
     std1Parent->print();            // but when we use pointer it overrides student class's print() func and it calles Employee class's print() func.
                                     // this one does not print 4 and 3.15 values.
+                                    
+                                    
+                                    // WE CAN ALSO WRITE    std1.Employee::print();   WITHOUT 62,63,68 LINES.
 
 
 
