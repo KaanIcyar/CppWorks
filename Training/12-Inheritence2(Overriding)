@@ -1,0 +1,74 @@
+#include <iostream>
+using namespace std;
+
+
+class Employee {
+protected:
+    string name;
+    string surname;
+    string sex;
+    int age;
+    int ID;
+
+public:
+    Employee() {
+        this->name = "null";
+        this->surname = "null";
+        this->sex = "null";
+        this->age = 0;
+        this->ID = 0;
+
+
+    }
+    Employee(string name, string surname, string sex, int age, int ID) :name(name), surname(surname), sex(sex), age(age), ID(ID) {}
+
+    void print() {
+        cout << "Name : " << name << endl << "Surname : " << surname << endl << "Sex : " << sex << endl << "Age : " << age << endl << "ID : " << ID << endl;
+    }
+
+
+
+};
+
+class Student :public Employee {
+private:
+    int year;
+    float GPA;
+public:
+    Student(string name, string surname, string sex, int age, int ID, int year, float GPA) {
+        this->name = name;                           // Student class has not name variable but inherited class has so this-> name means line 7 int name.
+        this->surname = surname;
+        this->sex = sex;
+        this->age = age;
+        this->ID = ID;
+        this->year = year;
+        this->GPA = GPA;
+    }
+
+    void print() {
+        cout << "Name : " << name << endl << "Surname : " << surname << endl << "Sex : " << sex << endl << "Age : " << age << endl << "ID : " << ID << endl << "Year : " << year << endl << "GPA :" << GPA << endl;
+    }
+};
+
+
+
+
+
+int main()
+{
+
+    Student std1("Kaan", "ICYAR", "M", 23, 50, 4, 3.15);
+
+    Employee* std1Parent;           // Create a pointer object 
+    std1Parent = &std1;             // We say give an address of type Employee, but std1 is not an address of class Employee, so it gives the address of the inherited class.
+
+
+    std1.print();                   // when we have two or more functions which has same name it calles function Class:Student because std1 this class's func.
+    cout << "-------------------------------------" << endl;
+    std1Parent->print();            // but when we use pointer it overrides student class's print() func and it calles Employee class's print() func.
+                                    // this one does not print 4 and 3.15 values.
+
+
+
+    return 0;
+}
