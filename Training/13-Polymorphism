@@ -40,9 +40,27 @@ int main() {
     t1->setValues(3, 4);
     sq1->setValues(3, 4);
 
-    cout << t1->area() << endl;
-    cout << sq1->area() << endl;
-    cout << s3.area() << endl;
+    cout << t1->area() << endl;                         //6
+    cout << sq1->area() << endl;                        //12
+    cout << s3.area() << endl;                          //0
+    
+    
+    /*
+    Shape* array[3];                                      // IT'S ALSO GIVES ALL ZERO LIKE POINTER ONE.
+    array[0] = &s1;
+    array[1] = &s2;
+    array[2] = &s3;
 
+    array[0]->setValues(3, 4);
+    array[1]->setValues(3, 4);
+    array[2]->setValues(3, 4);
+
+    cout << array[0]->area() << endl;               //6
+    cout << array[1]->area() << endl;               //12
+    cout << array[2]->area() << endl;               //0
+    */
+    
+    
+    
     return 0;
 }
