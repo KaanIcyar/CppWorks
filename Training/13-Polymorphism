@@ -64,3 +64,48 @@ int main() {
     
     return 0;
 }
+
+
+
+*****************************************************************************************************************************************************************************
+
+// ANOTHER EXAMPLE
+
+
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    void sound() {
+        cout << "Animal Sounds" << endl;
+    }
+};
+
+
+class Cat : public Animal {
+public:
+    void sound() {
+        cout << "meow" << endl;
+    }
+};
+
+// Derived class
+class Dog : public Animal {
+public:
+    void sound() {
+        cout << "woof" << endl;
+    }
+};
+
+int main() {
+    Animal a1;
+    Cat a2;
+    Dog a3;
+
+    a1.sound();
+    a2.sound();
+    a3.sound();
+
+    return 0;
+}
