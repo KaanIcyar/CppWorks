@@ -1,0 +1,57 @@
+
+//WRITING
+
+#include <iostream>
+# include <fstream>                                                                                 // we must include that for file operations.
+using namespace std;
+
+int main()
+{
+    ofstream file("C:\\Users\\kaani\\OneDrive\\Masaüstü\\Students.txt", std::ios_base::app);        // if we dont use std::ios_base::app it delete all the file and 
+                                                                                                    //then it starts write .
+    int number[3];
+    string name[3];
+    int year[3];
+
+    for (int i = 0; i < 3; i++) {
+        cout << "Number : ";
+        cin >> number[i];
+        cout << "Name : ";
+        cin >> name[i];
+        cout << "Year : ";
+        cin >> year[i];
+
+    }
+
+    file << "Student List : " << endl;
+
+    for (int i = 0; i < 3; i++) {
+        file << number[i] << " " << name[i] << " " << year[i] << endl;
+    }
+
+}
+
+*******************************************************************************************************************************************************************************
+
+//READING
+
+#include <iostream>
+# include <fstream>                                                                                 // we must include that for file operations.
+using namespace std;
+
+int main() {
+    ifstream file("C:\\Users\\kaani\\OneDrive\\Masaüstü\\Teams.txt");
+
+    int teamEstablishments[3];
+    string teamNames[3];
+    int i = 0;
+    while (file) {
+        file >> teamEstablishments[i] >> teamNames[i];
+        i++;
+    }
+
+    for (int i = 0; i < 3; i++)
+    {
+        cout << "Establisment Years : " << teamEstablishments[i] << endl << "Team Names : " << teamNames[i] << endl << "-------------------------------" << endl;
+    }
+}
