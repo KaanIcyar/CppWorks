@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+const int SIZE = 1000;
+
+int main()
+{
+	double v1 = 0, v2 = 0, v3 = 0, v4 = 0, v5 = 0, v6 = 0, v7 = 0;
+    double nv1 = 0, nv2 = 0, nv3 = 0, nv4 = 0, nv5 = 0, nv6 = 0, nv7 = 0;
+    int i = 0;
+
+    while (i < SIZE) {
+        cout << "Iteration " << i+1 << endl;
+        v1 = (50 + 50 + 100 + v4) / 4;
+        v2 = (100 + 0 + v3 + v5) / 4;
+        v3 = (100 + v2 + v6 + v7) / 4;
+        v4 = (v1 + v3 + v7 + 50) / 4;
+        v5 = (v2 + 0 + (-30) + v6) / 4;
+        v6 = (v3 + v5 + (-30) + v7) / 4;
+        v7 = (v4 + v6 + (-30) + 50) / 4;
+        cout << "v1 : "<< v1 << endl << "v2 : " << v2 << endl << "v3 : " << v3 << endl << "v4 : " <<  v4 << endl << "v5 : "<<  v5 << endl << "v6 : " << v6 << endl <<"v7 : " << v7 << endl;
+        cout << "*********************************" << endl;
+
+        if (abs(nv1 - v1) <= 0.001 && abs(nv2 - v2) <= 0.001 && abs(nv3 - v3) <= 0.001 && abs(nv4 - v4) <= 0.001 && abs(nv5 - v5) <= 0.001 && abs(nv6 - v6) <= 0.001 && abs(nv7 - v7) <= 0.001) {
+            cout << "Iteration is stopped at " << i + 1 << " th line." << endl;
+            break;
+        }
+        else {
+            //cout << abs(nv1 - v1) << abs(nv2 - v2) << abs(nv3 - v3) << abs(nv4 - v4) << abs(nv5 - v5) << abs(nv6 - v6) << abs(nv7 - v7) << endl;
+            i++;
+        }
+
+        nv1 = v1;
+        nv2 = v2;
+        nv3 = v3;
+        nv4 = v4;
+        nv5 = v5;
+        nv6 = v6;
+        nv7 = v7;
+    }
+	return 0;
+}
+
