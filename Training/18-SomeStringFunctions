@@ -1,0 +1,83 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+int main()
+{    
+    /*
+    string name;
+    cout << "Enter your full name : ";
+    getline(cin, name);                     // this function gets line. even there is a space. For ex. if we enter "kaan icyar"
+    cout << name;                           // the output would be "kaan icyar"
+    */
+
+    /*
+    string name2 = "kaan";
+    string name3 = "baris";
+
+    name2.assign(name3);
+    cout << name2 << endl;                 // baris 
+    name3.assign("ahmet");
+    cout << name3 << endl;                 // ahmet
+
+    */
+
+    /*
+    string name4 = "kaan";
+    cout << name4.at(3) << endl;          // n
+
+    for (int i = 0; i < 4; i++)
+        cout << name4.at(i) << " ";       // k a a n
+    */
+
+    /*
+    string name5 = "KAAN ICYAR";
+
+    for (int i = 0; i < name5.length(); i++)
+        cout << name5.at(i) << " ";             // K A A N   I C Y A R    
+    */
+
+    /*
+    string name6 = "KAAN ICYAR";
+    cout << name6.substr(5, 5);                 // START FROM 5.TH INDEX AND THEN PRINT 5 ELEMENT. FOR THIS EXAMPLE "ICYAR"
+    */
+
+    /*
+    string name7 = "KAAN";
+    string name8 = "BARIS";
+
+    cout << name7 << endl;                      // KAAN
+    name7.swap(name8);          
+    cout << name7 << endl;                      // BARIS
+    */
+
+    /*
+    string name9 = "KAAN ICYAR";
+    string name10 = name9;
+
+    cout << name9 << endl;                      // KAAN ICYAR
+    name9.erase(4);
+    cout << name9 << endl;                      // KAAN
+    name10.erase(4, 2);
+    cout << name10<< endl;                      // KAANCYAR
+    */
+
+    /*
+    string aline = "Muhammed Ali is the best boxer ever lived.";
+
+    cout << aline.find("er") << endl;           //28    This starts from left.
+    cout << aline.rfind("er") << endl;          //33    This starts from right.
+
+    cout << aline.substr(aline.rfind(" ")+1,6) << endl;     // lived.
+    */
+
+    /*
+    string name11 = "KAAN ICYAR";
+    cout << name11 << endl;                     // KAAN ICYAR                
+    name11.replace(0, 4, "BARIS");              // THROW LETTERS FROM 0 TO 4TH INDEX AND THEN REPLACE IT WITH "BARIS"
+    cout << name11 << endl;                     // BARIS ICYAR     
+    */
+
+
+    return 0;
+}
