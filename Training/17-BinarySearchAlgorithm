@@ -1,0 +1,35 @@
+// IT CAN BE USE FOR SORTED ARRAYS ONLY
+
+#include <iostream>
+using namespace std;
+
+
+int binarySearch(int array1[], int lower, int higher,int  searchingValue) {
+
+    while (lower <= higher) {
+        int medium = lower + (higher - lower) / 2;
+
+        if (array1[medium] == searchingValue)
+            return medium;
+        else if (array1[medium] < searchingValue)
+            lower = medium + 1;
+        else
+            higher = medium - 1;
+    }
+        return -1;
+}
+
+int main()
+{
+    int array1[] = { 1,3,5,7,9,12,23,25,45,67,78,99,234 };
+    int searchingValue = 25;
+    int size = sizeof(array1) / sizeof(int);
+
+    int value = binarySearch(array1, 0, size, searchingValue);
+    if (value > 0)
+        cout << value << ".th index";
+    else
+        cout << "There is no value such that." << endl;
+
+    return 0;
+}
