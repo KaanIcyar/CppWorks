@@ -1,0 +1,27 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+
+    vector<string> stringArray;
+
+    stringArray.push_back("element #1");
+    stringArray.push_back("element #2");
+    stringArray.push_back("element #3");
+    /*
+    for (int i = 0; i < stringArray.size(); i++)
+        cout << stringArray[i] << endl;
+    */                                                                                          // X
+
+    /*
+    for (vector<string>::iterator i = stringArray.begin(); i != stringArray.end(); i++)         // Y
+        cout << *i << endl;
+    */
+
+    vector<string>::iterator i = stringArray.begin();
+    cout << *i << endl;
+    cout << *(i+1) << endl;
+    cout << *(i+2) << endl;                                                                     // Z. YOU CAN USE ALL OF THREE X,Y,Z FOR PRINT ELEMENTS.
+}
