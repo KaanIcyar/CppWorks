@@ -1,0 +1,91 @@
+#include <iostream>
+using namespace std;
+
+void throwingError() {
+    bool error1 = false;
+    bool error2 = false;
+    bool error3 = true;
+
+    if (error1) {
+        throw 404;
+    }
+    if (error2) {
+        throw string("This is a string error line.");
+    }
+    if (error3) {
+        throw "This is a char const error.";
+    }
+}
+
+int main()
+{
+    try {
+        throwingError();
+    }
+    catch (int e) {
+        cout << e << endl;
+    }
+    catch (string e) {
+        cout << e << endl;
+    }
+    catch (char const* e) {
+        cout << e << endl;
+    }
+}
+
+*******************************************************************************************************************************************************************************
+
+#include <iostream>
+using namespace std;
+
+class stdException {
+public:
+    stdException() {
+        char* memory = new char[99999999999999];
+        delete[] memory;
+
+    }
+};
+
+
+
+int main() {
+
+    try {
+        stdException e1;
+    }
+    catch (bad_alloc e) {
+        cout << "This memory size is too big.    " << e.what() << endl;
+    }
+}
+*******************************************************************************************************************************************************************************
+#include <iostream>
+#include <exception>
+using namespace std;
+
+class ourException : public exception {
+public:
+    virtual char const* what() const throw() {
+        return "You are making a mistake !!!";
+    }
+
+};
+
+class Human {
+public:
+    void makeMistake() {
+        throw ourException();
+    }
+};
+
+int main() {
+    Human h1;
+    try {
+        h1.makeMistake();
+    }
+    catch (ourException e) {
+        cout << e.what() << endl;
+    }
+
+    return 0;
+}
